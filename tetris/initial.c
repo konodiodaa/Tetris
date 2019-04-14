@@ -1,5 +1,5 @@
 #include "initial.h"
-int init(char* title,SDL_Window* gwindow,SDL_Renderer* grender,int width,int height)
+int init(char* title)
 {
 	//Initialization flag
 	int success = 1;
@@ -14,7 +14,7 @@ int init(char* title,SDL_Window* gwindow,SDL_Renderer* grender,int width,int hei
 	{
 		//Create window
 
-		gwindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width,height,0);
+        extern gwindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,0);
 		if( gwindow == NULL )
 		{
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -23,7 +23,7 @@ int init(char* title,SDL_Window* gwindow,SDL_Renderer* grender,int width,int hei
 		else
 		{
 			//Create renderer for window
-			grender = SDL_CreateRenderer( gwindow, -1, SDL_RENDERER_ACCELERATED );
+			extern grender = SDL_CreateRenderer( gwindow, -1, SDL_RENDERER_ACCELERATED );
 			if( grender == NULL )
 			{
 				printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );

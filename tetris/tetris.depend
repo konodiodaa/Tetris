@@ -1,18 +1,20 @@
 # depslib dependency file v1.0
-1555230209 source:d:\codeblock\courseworkofprogrammingproject\tetris\initial.c
+1555239369 source:d:\codeblock\courseworkofprogrammingproject\tetris\initial.c
 	"initial.h"
 
 1555224068 source:d:\codeblock\courseworkofprogrammingproject\tetris\button.c
 
-1555230167 d:\codeblock\courseworkofprogrammingproject\tetris\initial.h
+1555239597 d:\codeblock\courseworkofprogrammingproject\tetris\initial.h
 	<stdio.h>
 	<stdlib.h>
 	<SDL2/SDL.h>
 
-1555229905 source:d:\codeblock\courseworkofprogrammingproject\tetris\main.c
+1555244078 source:d:\codeblock\courseworkofprogrammingproject\tetris\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<SDL2/SDL.h>
-	"initial.h"
+	"main.h"
+
+1555244128 d:\codeblock\courseworkofprogrammingproject\tetris\main.h
 
