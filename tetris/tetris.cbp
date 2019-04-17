@@ -31,6 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="OperateBrick.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="OperateBrick.h" />
+		<Unit filename="brickstructure.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="brickstructure.h" />
 		<Unit filename="button.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -42,11 +50,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="main.h" />
-		<Unit filename="rotatebrick.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="rotatebrick.h" />
 		<Unit filename="rumtime.c">
 			<Option compilerVar="CC" />
 		</Unit>
