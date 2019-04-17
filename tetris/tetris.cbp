@@ -35,13 +35,22 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="button.h" />
-		<Unit filename="initial.c">
+		<Unit filename="font.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="initial.h" />
+		<Unit filename="font.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="main.h" />
+		<Unit filename="rotatebrick.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="rotatebrick.h" />
+		<Unit filename="rumtime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="runtime.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
