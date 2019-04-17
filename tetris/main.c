@@ -2,9 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <SDL2/SDL.h>
-#include "main.h"
 #include "runtime.h"
 //#include "rotatebrick.h"
+SDL_Window* gwindow=NULL;
+SDL_Renderer* grender=NULL;
+const int bsize=35;
+const int bnumberx=15;
+const int bnumbery=20;
+
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 700;
 
 int init(char* title);
 

@@ -1,10 +1,10 @@
 #include "rotatebrick.h"
 
-void rotatebrick(int *xshift, int *yshift, int x, int y, int pn, int rot_case)
+void rotatebrick(int *xshift, int *yshift, int x, int y, int bricktype, int rot_case)
 {
     int rot_method;
 
-	switch (pn) {
+	switch (bricktype) {
 	case 0:
 		rot_method = 0;
 		break;
@@ -36,3 +36,27 @@ void rotatebrick(int *xshift, int *yshift, int x, int y, int pn, int rot_case)
 	}
 }
 
+int rotatedValid(int *board,int *brick[2][4],int bricktype, int positionx, int positiony, int rot_case,int bnumberx,int bnumbery)
+{
+    int xshift, yshift;
+
+	for (int y=0; y<2; y++)
+    {
+		for (int x=0; x<4; x++)
+		{
+			rotatebrick(&xshift, &yshift, x, y, bricktype, rot_case);
+
+			if (positiony + yshift >= 0 && brick[bricktype][y][x])
+			{
+				if (positionx + xshift >= bnumberx || positionx + xshift < 0)
+                    return 0;
+				else if (positiony + yshift >= bnumbery)
+                    return 0;
+				else if (positiony >= 0 && board[bnumberx*(positiony + yshift) + positionx + xshift])
+                    return 0;
+			}
+		}
+	}
+
+	return 1;
+}

@@ -9,26 +9,26 @@
 	<stdlib.h>
 	<SDL2/SDL.h>
 
-1555462161 source:d:\codeblock\courseworkofprogrammingproject\tetris\main.c
+1555469641 source:d:\codeblock\courseworkofprogrammingproject\tetris\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<SDL2/SDL.h>
-	"main.h"
 	"runtime.h"
 
-1555413025 d:\codeblock\courseworkofprogrammingproject\tetris\main.h
+1555467549 d:\codeblock\courseworkofprogrammingproject\tetris\main.h
 
-1555464110 d:\codeblock\courseworkofprogrammingproject\tetris\runtime.h
+1555469956 d:\codeblock\courseworkofprogrammingproject\tetris\runtime.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_ttf.h>
 	"rotatebrick.h"
 
-1555462653 source:d:\codeblock\courseworkofprogrammingproject\tetris\rumtime.c
+1555469998 source:d:\codeblock\courseworkofprogrammingproject\tetris\rumtime.c
 	"runtime.h"
 	"rotatebrick.h"
 
-1555461941 source:d:\codeblock\courseworkofprogrammingproject\tetris\rotatebrick.c
+1555468946 source:d:\codeblock\courseworkofprogrammingproject\tetris\rotatebrick.c
+	"rotatebrick.h"
 
 1555462030 source:d:\codeblock\courseworkofprogrammingproject\tetris\font.c
 	"font.h"
@@ -37,5 +37,9 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_ttf.h>
 
-1555462686 d:\codeblock\courseworkofprogrammingproject\tetris\rotatebrick.h
+1555470027 d:\codeblock\courseworkofprogrammingproject\tetris\rotatebrick.h
+
+1555468140 d:\codeblock\courseworkofprogrammingproject\tetris\brickstructure.h
+
+1555468120 source:d:\codeblock\courseworkofprogrammingproject\tetris\brickstructure.c
 
