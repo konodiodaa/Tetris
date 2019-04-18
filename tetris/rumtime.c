@@ -143,3 +143,86 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
 		}
     }
 }
+
+
+void eventHandle(SDL_Renderer* grender,SDL_Event event,int* end)
+{
+   while (SDL_PollEvent(&event))
+    {
+
+
+            switch (key)
+            {
+				case SDLK_ESCAPE:
+					end = 1;
+					break;
+				case SDLK_UP:
+					if (valid(board, pn, px, py, (rot + 1) % 4))
+                    {
+                        rot = (rot + 1) % 4;
+                    }
+					pause = 0;
+					break;
+				case SDLK_LEFT:
+                    if (valid(board, pn, px - 1, py, rot))
+                    {
+                        px--;
+                    }
+					pause = 0;
+					break;
+				case SDLK_RIGHT:
+                    if (valid(board, pn, px + 1, py, rot))
+                    {
+                        px++;
+                    }
+					pause = 0;
+					break;
+				case SDLK_DOWN:
+                case SDLK_SPACE:
+                    for (yy=py; yy<sh; yy++)
+                    {
+                        if (!valid(board, pn, px, yy, rot)) break;
+                    }
+                    py = yy - 1;
+                    put = 1;
+					pause = 0;
+					break;
+				case SDLK_p:
+					pause = !pause;
+					break;
+				case SDLK_RETURN:
+					printf("game %d: %d lines\n", ++game, line);
+					pn = rand() % 7;
+					px = startx;
+					py = 0;
+					rot = 0;
+					put = 0;
+					redraw = 1;
+					memset(board, 0, sw*sh*sizeof(int));
+					line = 0;
+					snprintf(title, 255, "lines=%d,speed=%d", line, speed);
+					SDL_SetWindowTitle(window, title);
+					break;
+				case SDLK_KP_PLUS: case SDLK_PLUS: case SDLK_EQUALS:
+					if (speed < 100) {
+						speed++;
+						snprintf(title, 255, "lines=%d,speed=%d", line, speed);
+						SDL_SetWindowTitle(window, title);
+					}
+					break;
+				case SDLK_KP_MINUS: case SDLK_MINUS:
+					if (speed > 1) {
+						speed--;
+						snprintf(title, 255, "lines=%d,speed=%d", line, speed);
+						SDL_SetWindowTitle(window, title);
+					}
+					break;
+				}
+
+				redraw = 1;
+				break;
+			}
+			//SDL_FlushEvent(event.type);
+		}
+	}
+}
