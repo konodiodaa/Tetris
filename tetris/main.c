@@ -78,9 +78,8 @@ int main( int argc, char* args[]){
     }
     else
     {
-        rungame(grender,bsize,bnumberx,bnumbery);
+        rungame(gwindow,grender,bsize,bnumberx,bnumbery);
         close();
-
     }
 return 0;
 }

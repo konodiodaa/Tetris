@@ -36,7 +36,7 @@ void rotateBrick(int *xshift, int *yshift, int x, int y, int bricktype, int rot_
 	}
 }
 
-int rotatedValid(int *board,int *brick[2][4],int bricktype, int positionx, int positiony, int rot_case,int bnumberx,int bnumbery)
+int rotatedValid(int *board,int brick[][2][4],int bricktype, int positionx, int positiony, int rot_case,int bnumberx,int bnumbery)
 {
     int xshift, yshift;
 
@@ -61,7 +61,7 @@ int rotatedValid(int *board,int *brick[2][4],int bricktype, int positionx, int p
 	return 1;
 }
 
-int placeBrick(int *board,int *brick[2][4],int bricktype, int positionx, int positiony, int rot_case,int bnumberx,int bnumbery)
+int placeBrick(int *board,int brick[][2][4],int bricktype, int positionx, int positiony, int rot_case,int bnumberx,int bnumbery)
 {
     int xshift, yshift, isclear, clearline = 0;
 

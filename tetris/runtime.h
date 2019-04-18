@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "OperateBrick.h"
-void rungame(SDL_Renderer* grender,int bsize,int bnumberx,int bnumbery);
+void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,int bnumbery);
 
