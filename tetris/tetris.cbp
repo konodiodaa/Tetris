@@ -38,7 +38,6 @@
 		<Unit filename="brickstructure.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="brickstructure.h" />
 		<Unit filename="button.c">
 			<Option compilerVar="CC" />
 		</Unit>

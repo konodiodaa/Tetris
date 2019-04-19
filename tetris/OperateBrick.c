@@ -69,7 +69,8 @@ int placeBrick(int *board,int brick[][2][4],int bricktype, int positionx, int po
 		for (int x=0; x<4; x++) {
 			rotateBrick(&xshift, &yshift, x, y, bricktype, rot_case);
 
-			if (positiony + yshift >= 0 && brick[bricktype][y][x]) board[bnumberx*(positiony + yshift) + positionx + xshift] = bricktype+1;//decide color of brick
+			if (positiony + yshift >= 0 && brick[bricktype][y][x]) board[bnumberx*(positiony + yshift) + positionx + xshift] = bricktype+1;
+            //decide color of brick
 		}
 	}
 

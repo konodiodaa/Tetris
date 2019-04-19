@@ -18,16 +18,17 @@
 
 1555467549 d:\codeblock\courseworkofprogrammingproject\tetris\main.h
 
-1555490277 d:\codeblock\courseworkofprogrammingproject\tetris\runtime.h
+1555632771 d:\codeblock\courseworkofprogrammingproject\tetris\runtime.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_ttf.h>
 	"OperateBrick.h"
 
-1555570433 source:d:\codeblock\courseworkofprogrammingproject\tetris\rumtime.c
+1555632419 source:d:\codeblock\courseworkofprogrammingproject\tetris\rumtime.c
 	"runtime.h"
 	"time.h"
 	<stdlib.h>
 	"OperateBrick.h"
+	"eventhandle.h"
 
 1555470035 source:d:\codeblock\courseworkofprogrammingproject\tetris\rotatebrick.c
 	"rotatebrick.h"
@@ -47,6 +48,13 @@
 
 1555570091 d:\codeblock\courseworkofprogrammingproject\tetris\operatebrick.h
 
-1555570098 source:d:\codeblock\courseworkofprogrammingproject\tetris\operatebrick.c
+1555633103 source:d:\codeblock\courseworkofprogrammingproject\tetris\operatebrick.c
+	"OperateBrick.h"
+
+1555598003 d:\codeblock\courseworkofprogrammingproject\tetris\eventhandle.h
+
+1555632464 source:d:\codeblock\courseworkofprogrammingproject\tetris\eventhandle.c
+	<SDL2/SDL.h>
+	"eventhandle.h"
 	"OperateBrick.h"
 
