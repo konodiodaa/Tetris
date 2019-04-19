@@ -3,7 +3,6 @@
 #include <time.h>
 #include <SDL2/SDL.h>
 #include "runtime.h"
-//#include "rotatebrick.h"
 SDL_Window* gwindow=NULL;
 SDL_Renderer* grender=NULL;
 const int bsize=35;

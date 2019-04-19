@@ -29,7 +29,7 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
    	int end = 0, redraw = 1;
 	int key;
 
-	int speed = 50, line = 0;
+	int speed = 1, line = 0;
 	int pause = 0, put = 0;
 	int game = 0;
 	int startx =(bnumberx-4)/2;
@@ -108,12 +108,11 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
 			box.h = bsize - 1;
 
 			SDL_SetRenderDrawColor(grender, 50, 50, 50, 0);
-			SDL_RenderDrawRect(grender, &box);
 
 			for (int y=0; y<bnumbery; y++) {
 				for (int x=0; x<bnumberx; x++) {
 					box.x = x*bsize;
-					box.y = y*bsize;
+                    box.y = y*bsize;
 
 					if (board[bnumberx*y + x] != 0) {
 						SDL_SetRenderDrawColor(grender,

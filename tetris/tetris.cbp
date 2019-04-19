@@ -35,13 +35,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="OperateBrick.h" />
-		<Unit filename="brickstructure.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="button.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="button.h" />
 		<Unit filename="eventhandle.c">
 			<Option compilerVar="CC" />
 		</Unit>
