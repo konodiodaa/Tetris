@@ -9,7 +9,7 @@
 	<stdlib.h>
 	<SDL2/SDL.h>
 
-1555570445 source:d:\codeblock\courseworkofprogrammingproject\tetris\main.c
+1555662046 source:d:\codeblock\courseworkofprogrammingproject\tetris\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -23,20 +23,24 @@
 	<SDL2/SDL_ttf.h>
 	"OperateBrick.h"
 
-1555632419 source:d:\codeblock\courseworkofprogrammingproject\tetris\rumtime.c
+1555748311 source:d:\codeblock\courseworkofprogrammingproject\tetris\rumtime.c
 	"runtime.h"
 	"time.h"
 	<stdlib.h>
 	"OperateBrick.h"
 	"eventhandle.h"
+	"font.h"
+	<stdio.h>
 
 1555470035 source:d:\codeblock\courseworkofprogrammingproject\tetris\rotatebrick.c
 	"rotatebrick.h"
 
-1555462030 source:d:\codeblock\courseworkofprogrammingproject\tetris\font.c
+1555747014 source:d:\codeblock\courseworkofprogrammingproject\tetris\font.c
+	"SDL2/SDL_ttf.h"
+	"SDL2/SDL.h"
 	"font.h"
 
-1555251779 d:\codeblock\courseworkofprogrammingproject\tetris\font.h
+1555746328 d:\codeblock\courseworkofprogrammingproject\tetris\font.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_ttf.h>
 

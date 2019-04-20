@@ -1,4 +1,4 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
-int loadFromRenderedText(char * textureText,SDL_Color textColor);
+void showfont(SDL_Texture* TextTexture,SDL_Renderer* grender,int x,int y,int w,int h,char* text);
 

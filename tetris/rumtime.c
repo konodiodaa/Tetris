@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include "OperateBrick.h"
 #include "eventhandle.h"
+#include "font.h"
+#include <stdio.h>
 int piece[7][2][4] = {
 	{{0,1,1,0},{0,1,1,0}},
 	{{1,1,1,1},{0,0,0,0}},
@@ -28,20 +30,22 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
 
    	int end = 0, redraw = 1;
 	int key;
-
 	int speed = 1, line = 0;
 	int pause = 0, put = 0;
 	int game = 0;
 	int startx =(bnumberx-4)/2;
 	int bricktype, positionx, positiony, rot_case;
-
 	int xshift, yshift, clearlinenum;
-
-	char title[255];
-	snprintf(title, 255, "lines=%d,speed=%d", line, speed);
-
-
-
+	char title[100];
+	char currentSpeed[100];
+	char score[100];
+	snprintf(title, 100, "lines=%d,speed=%d", line, speed);
+	snprintf(currentSpeed,100,"current speed is :%d",speed);
+    SDL_Texture* pauseText=NULL;
+    SDL_Texture* speedupText=NULL;
+    SDL_Texture* speedownText=NULL;
+    SDL_Texture* currentSpeedText=NULL;
+    SDL_Texture* scoreText=NULL;
 	int *board = malloc(bnumberx*bnumbery*sizeof(int));
 	memset(board, 0, bnumberx*bnumbery*sizeof(int));
 
@@ -59,7 +63,6 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
 	rot_case= 0;
 
 	int t = SDL_GetTicks();
-
 	while (!end) {
 		if (SDL_GetTicks() - t > 3*(101-speed) && !pause) {
 			if (rotatedValid(board,piece,bricktype, positionx, positiony + 1, rot_case,bnumberx,bnumbery))
@@ -101,9 +104,13 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
 		}
 
 		if (redraw) {
+
 			SDL_SetRenderDrawColor(grender, 0, 0, 0, 0);
 			SDL_RenderClear(grender);
-
+			showfont(currentSpeedText,grender,530,200,200,25,currentSpeed);
+            showfont( pauseText,grender, 530,500,250,25,"Press: P to stop game");
+            showfont(speedupText,grender,610,550,150,25,"+ to speed up");
+            showfont(speedownText,grender,615,600,170,25,"- to speed down");
 			box.w = bsize - 1;
 			box.h = bsize - 1;
 
@@ -140,11 +147,9 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
 					}
 				}
 			}
-
 			SDL_RenderPresent(grender);
 			redraw = 0;
 		}
-
         while (SDL_PollEvent(&event))
         {
 			switch (event.type)
@@ -186,11 +191,30 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
                         case SDLK_p:
                             pause=!pause;
                             break;
-
-                    }
+                        case SDLK_KP_PLUS:
+                        case SDLK_PLUS:
+                        case SDLK_EQUALS:
+                            if (speed < 100)
+                            {
+                                speed++;
+                                snprintf(currentSpeed,100,"current speed is :%d",speed);
+                            }
+                            break;
+                        case SDLK_KP_MINUS:
+                        case SDLK_MINUS:
+                            if (speed > 1)
+                            {
+                                speed--;
+                                snprintf(currentSpeed,100,"current speed is :%d",speed);
+                            }
+                            break;
+					}
+					break;
+				}
                 redraw = 1;
+                SDL_RenderClear(grender);
 				break;
-            }
+
         }
 	}
 }
