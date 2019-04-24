@@ -3,12 +3,17 @@
 #include <time.h>
 #include <SDL2/SDL.h>
 #include "runtime.h"
+
+//window and render
 SDL_Window* gwindow=NULL;
 SDL_Renderer* grender=NULL;
+
+//grid size and number
 const int bsize=35;
 const int bnumberx=15;
 const int bnumbery=20;
 
+// screen size
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 700;
 
@@ -77,6 +82,7 @@ int main( int argc, char* args[]){
     }
     else
     {
+        // run the game
         rungame(gwindow,grender,bsize,bnumberx,bnumbery);
         close();
     }

@@ -1,5 +1,6 @@
 #include "OperateBrick.h"
 
+// rotate the brick update the xshift and yshift by using the rotate case of the brick
 void rotateBrick(int *xshift, int *yshift, int x, int y, int bricktype, int rot_case)
 {
     int rot_method;
@@ -36,6 +37,7 @@ void rotateBrick(int *xshift, int *yshift, int x, int y, int bricktype, int rot_
 	}
 }
 
+// judge the rotate operation successful or not
 int rotatedValid(int *board,int brick[][2][4],int bricktype, int positionx, int positiony, int rot_case,int bnumberx,int bnumbery)
 {
     int xshift, yshift;
@@ -61,6 +63,7 @@ int rotatedValid(int *board,int brick[][2][4],int bricktype, int positionx, int 
 	return 1;
 }
 
+// place the brick
 int placeBrick(int *board,int brick[][2][4],int bricktype, int positionx, int positiony, int rot_case,int bnumberx,int bnumbery)
 {
     int xshift, yshift, isclear, clearline = 0;

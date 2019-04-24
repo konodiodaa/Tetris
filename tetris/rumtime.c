@@ -6,6 +6,7 @@
 #include "font.h"
 #include <stdio.h>
 #include <string.h>
+//brick shape
 int piece[7][2][4] = {
 	{{0,1,1,0},{0,1,1,0}},
 	{{1,1,1,1},{0,0,0,0}},
@@ -16,6 +17,7 @@ int piece[7][2][4] = {
 	{{0,1,1,1},{0,0,0,1}}
 };
 
+//brick color
 int piece_color[7][3] = {
 	{0, 200, 0},
 	{200, 0, 0},
@@ -29,53 +31,62 @@ int piece_color[7][3] = {
 void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,int bnumbery)
 {
 
-   	int end = 0;
-    int redraw = 1, put = 0;
-	int key;
-	int speed = 1, line = 0;
-	int pause = 0;
-	int startx =(bnumberx-4)/2;
-	int bricktype, positionx, positiony, rot_case;
-	int xshift, yshift;
-	int clearlinenum;
-	char currentSpeed[100];
-	char score[100];
-	snprintf(currentSpeed,100,"Current speed: %d",speed);
-    snprintf(score, 255, "Score: %d", line);
+   	int end = 0;    //decide if game is end
+    int redraw = 1;     //whether render the screen
+    int  put = 0;   //whether place the brick
+	int key;    // store the keyboard event
+	int speed = 1, line = 0;    //current speed and current score
+	int pause = 0;      //whether pause the game
+	int startx =(bnumberx-4)/2;     //the start x position of brick,and it`s at the middle of the screen
+	int bricktype, positionx, positiony, rot_case;  //basic elements of brick
+	int xshift, yshift; //the change on x position and y position when rotated.
+	int clearlinenum;   //number of lines cleaned
+	char currentSpeed[100];     // current speed display text
+	char score[100];    //current score display text
+	snprintf(currentSpeed,100,"Current speed: %d",speed);   //update the current speed text
+    snprintf(score, 255, "Score: %d", line);    //update the current score text
+
+    //Texture used for display font and text
     SDL_Texture* pauseText=NULL;
     SDL_Texture* speedupText=NULL;
     SDL_Texture* speedownText=NULL;
     SDL_Texture* currentSpeedText=NULL;
     SDL_Texture* scoreText=NULL;
+
+	//array used for display grid and brick
 	int *board = malloc(bnumberx*bnumbery*sizeof(int));
 	memset(board, 0, bnumberx*bnumbery*sizeof(int));
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-	SDL_Rect box;
+	SDL_Rect box;   // a sdl rectangle used for grid
 
-	SDL_Event event;
 
-	srand(time(NULL));
+	SDL_Event event;    //a pointer to event occur
 
+	srand(time(NULL));      //create random value
+
+	//set initial brick`s shape position and rotate case
 	bricktype = rand() % 7;
 	positionx = startx;
 	positiony = 0;
 	rot_case= 0;
 
-	int t = SDL_GetTicks();
+	int t = SDL_GetTicks();     //get time since the game start
 	while (!end) {
-		if (SDL_GetTicks() - t > 3*(101-speed) && !pause)
+		if (SDL_GetTicks() - t > 10*(101-speed) && !pause) // control of speed
         {
+            //brick drop one space
 			if (rotatedValid(board,piece,bricktype, positionx, positiony + 1, rot_case,bnumberx,bnumbery))
 				positiony++;
 			else
                 put = 1;
 
-			t = SDL_GetTicks();
+			t = SDL_GetTicks();     // fresh time
 			redraw = 1;
 		}
 
+		// place the brick
 		if (put) {
 
 			if (rotatedValid(board,piece,bricktype, positionx, positiony, rot_case,bnumberx,bnumbery)) {
@@ -85,7 +96,7 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
                     snprintf(score,100, "Score: %d", line);
 				}
 			}
-
+            //start a new brick
             bricktype = rand() % 7;
             positionx = startx;
             positiony = 0;
@@ -103,22 +114,28 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
 			}
 		}
 
+		//render the screen
 		if (redraw)
         {
-
+            //render background of screen
 			SDL_SetRenderDrawColor(grender, 0, 0, 0, 0);
 			SDL_RenderClear(grender);
+
+			//render text on screen
             showfont(scoreText,grender,530,100,100,25,score);
 			showfont(currentSpeedText,grender,530,200,200,25,currentSpeed);
             showfont( pauseText,grender, 530,500,250,25,"Press: P to stop game");
             showfont(speedupText,grender,610,550,150,25,"+ to speed up");
             showfont(speedownText,grender,615,600,170,25,"- to speed down");
 
+            // grid size and color
 			box.w = bsize - 1;
 			box.h = bsize - 1;
 
 			SDL_SetRenderDrawColor(grender, 50, 50, 50, 0);
 
+
+            //fill the screen with grid and brick
 			for (int y=0; y<bnumbery; y++)
             {
 				for (int x=0; x<bnumberx; x++)
@@ -158,6 +175,8 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
 			SDL_RenderPresent(grender);
 			redraw = 0;
 		}
+
+		//handle event
         while (SDL_PollEvent(&event))
         {
 			switch (event.type)
@@ -170,6 +189,8 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
                     break;
                 case SDL_KEYDOWN:
                     key = event.key.keysym.sym;
+
+                    // keyboard event
                     switch(key)
                     {
                         case SDLK_ESCAPE:
