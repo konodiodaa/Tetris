@@ -127,7 +127,6 @@ void rungame(SDL_Window* gwindow,SDL_Renderer* grender,int bsize,int bnumberx,in
             showfont( pauseText,grender, 530,500,250,25,"Press: P to stop game");
             showfont(speedupText,grender,610,550,150,25,"+ to speed up");
             showfont(speedownText,grender,615,600,170,25,"- to speed down");
-
             // grid size and color
 			box.w = bsize - 1;
 			box.h = bsize - 1;

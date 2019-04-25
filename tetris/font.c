@@ -1,7 +1,8 @@
 #include "SDL2/SDL_ttf.h"
 #include "SDL2/SDL.h"
 #include "font.h"
-void showfont(SDL_Texture* TextTexture,SDL_Renderer* grender,int x,int y,int w,int h,char* text)
+#include <stdio.h>
+int showfont(SDL_Texture* TextTexture,SDL_Renderer* grender,int x,int y,int w,int h,char* text)
 {
     SDL_Surface * TextSurface = NULL;//text surface
     if( TTF_Init() == -1 )
@@ -32,5 +33,5 @@ void showfont(SDL_Texture* TextTexture,SDL_Renderer* grender,int x,int y,int w,i
     // free the extra variable
     SDL_DestroyTexture(TextTexture);
     SDL_FreeSurface(TextSurface);
-
+    return 1;
 }
